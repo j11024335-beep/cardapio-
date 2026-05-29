@@ -12,7 +12,7 @@ const firebaseConfig = {
     storageBucket: "cardapio-bcf38.firebasestorage.app",
     messagingSenderId: "991711198204",
     appId: "1:991711198204:web:ba21d974f5d4d0a21c5079",
-    measurementId: "G-QQKN182X35"
+
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
