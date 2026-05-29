@@ -5,14 +5,14 @@ import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-
 
 // SUBSTITUA PELAS SUAS CONFIGURAÇÕES DO FIREBASE
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "SEU_AUTH_DOMAIN",
-    databaseURL: "SUA_DATABASE_URL",
-    projectId: "SEU_PROJECT_ID",
-    storageBucket: "SEU_STORAGE_BUCKET",
-    messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-    appId: "SEU_APP_ID"
-};
+    apiKey: "AIzaSyAW37sIiJ8WnJNjx8of2klOyToPeh0Bjfk",
+    authDomain: "cardapio-bcf38.firebaseapp.com",
+    databaseURL: "https://cardapio-bcf38-default-rtdb.firebaseio.com",
+    projectId: "cardapio-bcf38",
+    storageBucket: "cardapio-bcf38.firebasestorage.app",
+    messagingSenderId: "991711198204",
+    appId: "1:991711198204:web:ba21d974f5d4d0a21c5079",
+    measurementId: "G-QQKN182X35"
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
