@@ -1,0 +1,70 @@
+/* style.css - Reset e Variáveis */
+:root {
+    --primary: #ea1d2c;
+    --bg: #f7f7f7;
+    --text: #333;
+    --white: #fff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: var(--bg); color: var(--text); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* Header */
+.header { background: var(--white); padding: 15px 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
+.header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img { width: 40px; height: 40px; border-radius: 50%; }
+.search-bar { flex: 1; margin: 0 20px; position: relative; }
+.search-bar input { width: 100%; padding: 10px 15px; border-radius: 20px; border: 1px solid #ddd; outline: none; }
+.cart-icon { font-size: 1.5rem; cursor: pointer; position: relative; }
+#cart-count { position: absolute; top: -5px; right: -10px; background: var(--primary); color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; }
+
+/* Banner */
+.banner { height: 250px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; margin-bottom: 20px; }
+.banner-content h2 { font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+/* Categorias */
+.categories-nav { background: #fff; padding: 10px 0; margin-bottom: 20px; overflow-x: auto; }
+.categories-nav ul { display: flex; list-style: none; gap: 10px; }
+.categories-nav li { padding: 8px 15px; background: #eee; border-radius: 20px; cursor: pointer; white-space: nowrap; }
+.categories-nav li.active { background: var(--primary); color: #fff; }
+
+/* Grid */
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.product-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: 0.3s; }
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { width: 100%; height: 180px; object-fit: cover; }
+.product-info { padding: 15px; }
+.product-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.price { font-weight: bold; color: var(--primary); font-size: 1.2rem; }
+.add-btn { background: var(--primary); color: #fff; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; }
+
+/* Modals */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+.modal-content { background: #fff; padding: 20px; border-radius: 10px; max-width: 500px; width: 100%; position: relative; }
+.modal-body img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+.qty-control { display: flex; align-items: center; gap: 15px; border: 1px solid #ddd; padding: 5px 15px; border-radius: 20px; }
+.qty-control button { background: none; border: none; font-size: 1.2rem; cursor: pointer; }
+.btn-add-cart, .btn-confirm { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+
+/* Carrinho */
+.cart-sidebar { position: fixed; top: 0; right: -100%; width: 100%; max-width: 350px; height: 100%; background: #fff; box-shadow: -5px 0 10px rgba(0,0,0,0.1); z-index: 1100; transition: 0.3s; padding: 20px; display: flex; flex-direction: column; }
+.cart-sidebar.active { right: 0; }
+.cart-items { flex: 1; overflow-y: auto; margin: 20px 0; }
+.cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+
+/* Loading */
+.loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Footer */
+.main-footer { text-align: center; padding: 40px 0; background: #fff; margin-top: 40px; }
+.admin-links a { color: #999; text-decoration: none; font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+    .banner { height: 180px; }
+    .search-bar { display: none; }
+}

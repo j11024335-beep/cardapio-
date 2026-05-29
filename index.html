@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital | Premium</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" id="store-logo" alt="Logo">
+                <h1 id="store-name">Carregando...</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="O que você procura?">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon" id="open-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner" id="banner-home">
+        <div class="banner-content">
+            <h2 id="banner-title">Bem-vindo</h2>
+            <p id="banner-desc">Peça o melhor sabor agora!</p>
+        </div>
+    </section>
+
+    <nav class="categories-nav">
+        <div class="container">
+            <ul id="categories-list">
+                <li class="active" data-category="todos">Todos</li>
+                <li data-category="hamburgueres">Hambúrgueres</li>
+                <li data-category="combos">Combos</li>
+                <li data-category="bebidas">Bebidas</li>
+                <li data-category="sobremesas">Sobremesas</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="products-container" class="products-grid">
+            <!-- Renderizado via JS -->
+        </div>
+    </main>
+
+    <!-- Modal Produto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="">
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-desc"></p>
+                    <div class="modal-price" id="modal-price"></div>
+                    <div class="modal-actions">
+                        <div class="qty-control">
+                            <button id="minus-qty">-</button>
+                            <span id="modal-qty">1</span>
+                            <button id="plus-qty">+</button>
+                        </div>
+                        <button id="add-to-cart-btn" class="btn-add-cart">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Meu Pedido</h3>
+            <span id="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-value">R$ 0,00</span>
+            </div>
+            <button id="checkout-btn" class="btn-checkout">Finalizar no WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-checkout">&times;</span>
+            <h2>Dados de Entrega</h2>
+            <form id="checkout-form">
+                <input type="text" id="cust-name" placeholder="Seu Nome" required>
+                <textarea id="cust-address" placeholder="Endereço Completo" required></textarea>
+                <select id="cust-payment" required>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão">Cartão</option>
+                </select>
+                <textarea id="cust-obs" placeholder="Observações (ex: sem cebola)"></textarea>
+                <button type="submit" class="btn-confirm">Enviar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p id="footer-text">&copy; 2024 Cardápio Digital</p>
+            <div class="admin-links">
+                <a href="login.html"><i class="fas fa-lock"></i> Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

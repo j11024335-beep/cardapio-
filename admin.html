@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Gerenciar Cardápio</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h2>Admin</h2>
+            <nav>
+                <button onclick="showSec('prod')">Produtos</button>
+                <button onclick="showSec('conf')">Configurações</button>
+                <button id="logout-btn">Sair</button>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <!-- Produtos -->
+            <section id="sec-prod" class="sec active">
+                <div class="header-sec">
+                    <h1>Produtos</h1>
+                    <button class="btn-main" onclick="openProdModal()">+ Novo Produto</button>
+                </div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list-prod"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Configurações -->
+            <section id="sec-conf" class="sec">
+                <h1>Configurações da Loja</h1>
+                <form id="form-conf" class="form-admin">
+                    <label>Nome da Loja</label>
+                    <input type="text" id="c-name" required>
+                    
+                    <label>WhatsApp (Ex: 5511999999999)</label>
+                    <input type="text" id="c-phone" required>
+
+                    <label>Logo da Loja</label>
+                    <input type="file" id="f-logo" accept="image/*">
+                    <input type="hidden" id="v-logo">
+
+                    <label>Banner Principal</label>
+                    <input type="file" id="f-banner" accept="image/*">
+                    <input type="hidden" id="v-banner">
+
+                    <label>Título do Banner</label>
+                    <input type="text" id="c-btitle">
+
+                    <label>Descrição do Banner</label>
+                    <textarea id="c-bdesc"></textarea>
+
+                    <button type="submit" class="btn-main">Salvar Tudo</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Produto -->
+    <div id="modal-prod" class="modal">
+        <div class="modal-content">
+            <h2 id="m-title">Novo Produto</h2>
+            <form id="form-prod">
+                <input type="hidden" id="p-id">
+                <label>Nome</label>
+                <input type="text" id="p-name" required>
+                <label>Descrição</label>
+                <textarea id="p-desc" required></textarea>
+                <label>Preço</label>
+                <input type="number" step="0.01" id="p-price" required>
+                <label>Categoria</label>
+                <select id="p-cat">
+                    <option value="hamburgueres">Hambúrgueres</option>
+                    <option value="combos">Combos</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="sobremesas">Sobremesas</option>
+                </select>
+                <label>Foto do Produto</label>
+                <input type="file" id="f-prod" accept="image/*">
+                <input type="hidden" id="v-prod">
+                <div class="modal-btns">
+                    <button type="button" onclick="closeProdModal()">Cancelar</button>
+                    <button type="submit" class="btn-main">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="module" src="js/admin.js"></script>
+    <script>
+        function showSec(id) {
+            document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+            document.getElementById('sec-' + id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
